@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:security="http://www.springframework.org/schema/security"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd 
+	http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<!-- 资源-权限设置 -->
+	<security:http>
+		<security:anonymous enabled="false" />
+		<security:form-login default-target-url="/index.jsp"
+			login-page="/login.jsp" />
+		<security:intercept-url access="ROLE_ADMIN"
+			pattern="/update.jsp**" />		
+	</security:http>
+
+	<!-- 用户-权限配置 -->
+	<security:authentication-manager alias="authenticationManager">
+		<!-- 数据库方式配置 -->
+		<security:authentication-provider>
+			<security:jdbc-user-service
+				authorities-by-username-query="SELECT U.username, A.authorityString FROM Userbase U JOIN userbase_authority R ON R.userId = U.userId JOIN Authority A ON A.authorityId = R.authorityId WHERE U.username=?"
+				users-by-username-query="SELECT username,password,enabled FROM Userbase U where U.username=?"
+				data-source-ref="dataSource" />
+		</security:authentication-provider>
+		<!-- 配置方式配置 -->
+		<security:authentication-provider>
+			<security:user-service>
+				<security:user name="administrator" authorities="ROLE_ADMIN"
+					password="administrator" />
+			</security:user-service>
+		</security:authentication-provider>
+	</security:authentication-manager>
+
+</beans>

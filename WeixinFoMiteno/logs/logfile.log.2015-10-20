@@ -1,0 +1,9 @@
+2015.10.20-15:22:54 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_5(ForWxmy.java:286)  - vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv2.5创建卡券接口vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+2015.10.20-15:22:57 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_5(ForWxmy.java:353)  - 2.5创建卡券接口{"streaming_no":"20151020152254415016","result_code":"00000","result_msg":"\u63a5\u6536\u6210\u529f"}
+2015.10.20-15:22:57 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_5(ForWxmy.java:354)  - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^2.5创建卡券接口^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2015.10.20-15:24:34 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_4(ForWxmy.java:178)  - vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv2.4订购关系同步接口vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+2015.10.20-15:24:36 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_4(ForWxmy.java:232)  - 2.4订购关系同步接口返回{"streaming_no":"20151020152434386915","result_code":"00000","result_msg":"\u63a5\u6536\u6210\u529f"}
+2015.10.20-15:24:36 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_4(ForWxmy.java:233)  - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^2.4订购关系同步接口^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2015.10.20-15:26:04 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_6(ForWxmy.java:371)  - vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv2.6 卡券增加库存接口vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+2015.10.20-15:26:05 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_6(ForWxmy.java:424)  - 2.6 卡券增加库存接口{"streaming_no":"20151020152604478693","result_code":"99999","result_msg":"\u5361\u5238id\u83b7\u53d6\u5931\u8d25"}
+2015.10.20-15:26:05 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_6(ForWxmy.java:425)  - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^2.6 卡券增加库存接口^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

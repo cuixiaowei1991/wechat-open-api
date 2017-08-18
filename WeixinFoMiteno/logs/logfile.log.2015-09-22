@@ -1,0 +1,52 @@
+2015.09.22-09:03:51 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_11(ForWxmy.java:518)  - vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv2.11卡券POS核销通知接口vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+2015.09.22-09:03:51 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_11(ForWxmy.java:585)  - 2.11卡券POS核销通知接口{"streaming_no":"20150922090351067241","result_code":"99999","result_msg":"\u63a5\u6536\u5931\u8d25:query error : Table 'wx_base.wx_card_pos_consume_listinsertpos_consume' doesn't exist"}
+2015.09.22-09:03:51 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_11(ForWxmy.java:586)  - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^2.11卡券POS核销通知接口^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2015.09.22-09:27:20 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_11(ForWxmy.java:518)  - vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv2.11卡券POS核销通知接口vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+2015.09.22-09:27:20 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_11(ForWxmy.java:571)  - 2.11卡券POS核销通知接口-返回错误StatusCode:500
+2015.09.22-09:27:20 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_11(ForWxmy.java:572)  - <!DOCTYPE html>
+<html>
+<head>
+<title>Error</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>An error occurred.</h1>
+<p>Sorry, the page you are looking for is currently unavailable.<br/>
+Please try again later.</p>
+<p>If you are the system administrator of this resource then you should check
+the <a href="http://nginx.org/r/error_log">error log</a> for details.</p>
+<p><em>Faithfully yours, nginx.</em></p>
+</body>
+</html>
+
+2015.09.22-09:27:20 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_11(ForWxmy.java:585)  - 2.11卡券POS核销通知接口
+2015.09.22-09:27:20 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_11(ForWxmy.java:586)  - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^2.11卡券POS核销通知接口^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2015.09.22-09:34:56 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_11(ForWxmy.java:518)  - vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv2.11卡券POS核销通知接口vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+2015.09.22-09:34:57 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_11(ForWxmy.java:585)  - 2.11卡券POS核销通知接口{"streaming_no":null,"result_code":"99999","result_msg":"\u672a\u627e\u5230\u53ef\u6838\u9500\u7684cardid\u548ccode"}
+2015.09.22-09:34:57 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_11(ForWxmy.java:586)  - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^2.11卡券POS核销通知接口^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2015.09.22-09:39:43 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_11(ForWxmy.java:518)  - vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv2.11卡券POS核销通知接口vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+2015.09.22-09:39:44 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_11(ForWxmy.java:585)  - 2.11卡券POS核销通知接口{"streaming_no":"20150922093943269299","result_code":"99999","result_msg":"\u672a\u627e\u5230\u53ef\u6838\u9500\u7684cardid\u548ccode"}
+2015.09.22-09:39:44 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_11(ForWxmy.java:586)  - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^2.11卡券POS核销通知接口^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2015.09.22-09:41:41 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_11(ForWxmy.java:518)  - vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv2.11卡券POS核销通知接口vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+2015.09.22-09:41:41 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_11(ForWxmy.java:558)  - http://test.unroam.net/Api/index.php?a=Card&m=pos_consume
+2015.09.22-09:46:50 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_11(ForWxmy.java:518)  - vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv2.11卡券POS核销通知接口vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+2015.09.22-09:46:50 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_11(ForWxmy.java:558)  - http://test.unroam.net/Api/index.php?a=Card&m=pos_consume
+2015.09.22-09:47:03 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_11(ForWxmy.java:585)  - 2.11卡券POS核销通知接口{"streaming_no":"20150922094650120229","result_code":"99999","result_msg":"\u672a\u627e\u5230\u53ef\u6838\u9500\u7684cardid\u548ccode"}
+2015.09.22-09:47:03 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_11(ForWxmy.java:586)  - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^2.11卡券POS核销通知接口^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2015.09.22-09:52:26 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_11(ForWxmy.java:518)  - vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv2.11卡券POS核销通知接口vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+2015.09.22-09:52:26 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_11(ForWxmy.java:558)  - http://test.unroam.net/Api/index.php?a=Card&m=pos_consume
+2015.09.22-09:53:41 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_11(ForWxmy.java:518)  - vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv2.11卡券POS核销通知接口vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+2015.09.22-09:53:41 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_11(ForWxmy.java:558)  - http://test.unroam.net/Api/index.php?a=Card&m=pos_consume
+2015.09.22-09:53:42 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_11(ForWxmy.java:585)  - 2.11卡券POS核销通知接口{"streaming_no":"20150922095341434676","result_code":"99999","result_msg":"\u672a\u627e\u5230\u53ef\u6838\u9500\u7684cardid\u548ccode"}
+2015.09.22-09:53:42 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_11(ForWxmy.java:586)  - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^2.11卡券POS核销通知接口^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2015.09.22-09:53:53 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_11(ForWxmy.java:518)  - vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv2.11卡券POS核销通知接口vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+2015.09.22-09:57:18 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_11(ForWxmy.java:518)  - vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv2.11卡券POS核销通知接口vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+2015.09.22-09:57:18 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_11(ForWxmy.java:545)  - http://test.unroam.net/Api/index.php?a=Card&m=pos_consume
+2015.09.22-09:57:20 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_11(ForWxmy.java:572)  - 2.11卡券POS核销通知接口{"streaming_no":"20150922095718239317","result_code":"00000","result_msg":"\u64cd\u4f5c\u6210\u529f"}
+2015.09.22-09:57:20 [main] DEBUG com.cn.wxmy.ForWxmy.forWxmy2_11(ForWxmy.java:573)  - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^2.11卡券POS核销通知接口^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

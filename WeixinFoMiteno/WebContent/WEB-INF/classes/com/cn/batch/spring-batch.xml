@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:si="http://www.springframework.org/schema/integration"
+	xmlns:event="http://www.springframework.org/schema/integration/event"
+	xmlns:batch="http://www.springframework.org/schema/batch" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans.xsd
+		
+		http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch.xsd
+		http://www.springframework.org/schema/integration/event http://www.springframework.org/schema/integration/event/spring-integration-event.xsd">
+
+	<!-- 文件路径处理 -->
+	<bean id="filePathTasklet" class="com.cn.batch.FilePathTasklet"
+		scope="step">
+		<property name="outputPath">
+			<value>${video.output.path}</value>
+		</property>
+	</bean>
+
+	<!-- 获取视频文件信息 -->
+	<bean id="getInfoTasklet" class="com.cn.batch.GetInfoTasklet">
+		<property name="command">
+			<value>${mplayer.command}</value>
+		</property>
+		<property name="parameterLine">
+			<value>${getInfo.parameterLine}</value>
+		</property>
+	</bean>
+
+	<!-- AVI视频编码 -->
+	<bean id="aviTasklet" class="com.cn.batch.AviTasklet">
+		<property name="command">
+			<value>${mencoder.command}</value>
+		</property>
+		<property name="parameterLine">
+			<value>${avi.parameterLine}</value>
+		</property>
+	</bean>
+
+	<!-- INDEX视频编码 -->
+	<bean id="indexTasklet" class="com.cn.batch.IndexTasklet">
+		<property name="command">
+			<value>${mencoder.command}</value>
+		</property>
+		<property name="parameterLine">
+			<value>${index.parameterLine}</value>
+		</property>
+	</bean>
+
+	<!-- FLV视频编码器模块 -->
+	<bean id="flvTasklet" class="com.cn.batch.FlvTasklet">
+		<property name="command">
+			<value>${ffmpeg.command}</value>
+		</property>
+		<property name="parameterLine">
+			<value>${flv.parameterLine}</value>
+		</property>
+	</bean>
+
+	<!-- 视频截图模块 -->
+	<bean id="captureTasklet" class="com.cn.batch.CaptureTasklet">
+		<property name="command">
+			<value>${ffmpeg.command}</value>
+		</property>
+		<property name="parameterLine">
+			<value>${capture.parameterLine}</value>
+		</property>
+		<property name="captureTimes">
+			<value>${capture.captureTimes}</value>
+		</property>
+	</bean>
+
+	<!-- 截图编码器模块 -->
+	<bean id="pictureTasklet" class="com.cn.batch.PictureTasklet">
+		<property name="command">
+			<value>${imageMagick.command}</value>
+		</property>
+		<property name="parameterLine">
+			<value>${picture.parameterLine}</value>
+		</property>
+		<property name="pictureOutputPath">
+			<value>${picture.output.path}</value>
+		</property>
+	</bean>
+
+	<!-- Script脚本写入 -->
+	<bean id="writeToScriptTasklet" class="com.cn.batch.WriteToScriptTasklet">
+		<property name="outputPath">
+			<value>${script.output.path}</value>
+		</property>
+	</bean>
+
+	<!-- 执行脚本 -->
+	<bean id="executeScriptTasklet" class="com.cn.batch.ExecuteScriptTasklet" />
+
+	<!-- XML记录写入 -->
+	<bean id="writeToXMLTasklet" class="com.cn.batch.WriteToXMLTasklet"
+		scope="step">
+		<property name="outputPath">
+			<value>${xml.output.path}</value>
+		</property>
+	</bean>
+
+	<!-- 清理中间文件 -->
+	<bean id="cleanTasklet" class="com.cn.batch.CleanTasklet" />
+
+	<!-- 任务启动 -->
+	<bean id="jobLauncher"
+		class="org.springframework.batch.core.launch.support.SimpleJobLauncher">
+		<property name="jobRepository" ref="jobRepository" />
+	</bean>
+
+	<!-- 数据仓库 -->
+	<bean id="jobRepository"
+		class="org.springframework.batch.core.repository.support.MapJobRepositoryFactoryBean">
+	</bean>
+
+	<!-- 事务管理 -->
+	<bean id="transactionManager"
+		class="org.springframework.batch.support.transaction.ResourcelessTransactionManager" />
+
+	<!-- 批处理任务 -->
+	<batch:job id="encoderJob">
+		<batch:step id="filePathStep" next="getInfoStep">
+			<batch:tasklet ref="filePathTasklet" />
+		</batch:step>
+		<batch:step id="getInfoStep" next="aviStep">
+			<batch:tasklet ref="getInfoTasklet" />
+		</batch:step>
+		<batch:step id="aviStep" next="indexStep">
+			<batch:tasklet ref="aviTasklet" />
+		</batch:step>
+		<batch:step id="indexStep" next="flvStep">
+			<batch:tasklet ref="indexTasklet" />
+		</batch:step>
+		<batch:step id="flvStep" next="captureStep">
+			<batch:tasklet ref="flvTasklet" />
+		</batch:step>
+		<batch:step id="captureStep" next="pictureStep">
+			<batch:tasklet ref="captureTasklet" />
+		</batch:step>
+		<batch:step id="pictureStep" next="writeToScriptStep">
+			<batch:tasklet ref="pictureTasklet" />
+		</batch:step>
+		<batch:step id="writeToScriptStep" next="executeScriptStep">
+			<batch:tasklet ref="writeToScriptTasklet" />
+		</batch:step>
+		<batch:step id="executeScriptStep" next="writeToXMLStep">
+			<batch:tasklet ref="executeScriptTasklet" />
+		</batch:step>
+		<batch:step id="writeToXMLStep" next="cleanStep">
+			<batch:tasklet ref="writeToXMLTasklet" />
+		</batch:step>
+		<batch:step id="cleanStep">
+			<batch:tasklet ref="cleanTasklet" />
+		</batch:step>
+	</batch:job>
+
+	<!-- 接收系统消息，触发编码器 -->
+	<event:inbound-channel-adapter channel="uploadEndEventChannel"
+		event-types="com.cn.batch.event.UploadEndEvent" />
+	<si:channel id="uploadEndEventChannel" />
+	<si:service-activator method="handler"
+		input-channel="uploadEndEventChannel">
+		<bean id="uploadEndEventHandler" class="com.cn.batch.event.UploadEndEventHandler">
+			<property name="jobLauncher" ref="jobLauncher" />
+			<property name="job" ref="encoderJob" />
+		</bean>
+	</si:service-activator>
+</beans>

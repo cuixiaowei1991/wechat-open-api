@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- FLEX通讯模块配置 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:si="http://www.springframework.org/schema/integration"
+	xmlns:flex="http://www.springframework.org/schema/flex" xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+		http://www.springframework.org/schema/flex http://www.springframework.org/schema/flex/spring-flex-1.5.xsd">
+
+	<!-- 配置BlazeDS的消息服务 -->
+	<flex:message-broker services-config-path="classpath:com/cn/flex/services-config.xml">
+		<flex:secured authentication-manager="authenticationManager" />
+	</flex:message-broker>
+
+	<!-- 配置远程对象：用于FLEX客户端上传图片数据 -->
+	<flex:remoting-destination destination-id="userBaseAction_RemotingDestination"
+		include-methods="getListByPage" ref="userBaseAction" />
+
+	<!-- 配置远程消息目标：用于FLEX客户端与J2EE应用间建立通信通道 -->
+	<flex:integration-message-destination
+		id="flexToJ2ee_MessageDestination" message-channel="flexToJ2ee_messageChannel" />
+	<si:channel id="flexToJ2ee_messageChannel" />
+<!-- 	<bean id="messageHandler" class="com.cn.flex.MessageHandler" /> -->
+<!-- 	<si:transformer ref="messageHandler" input-channel="flexToJ2ee_messageChannel" -->
+<!-- 		method="receiveMessage" output-channel="logger" /> -->
+
+	<!-- 配置远程消息目标：用于FLEX客户端与FLEX客户端之间建立通信通道 -->
+	<flex:message-destination id="flexToFlex_MessageDestination" />
+
+</beans>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="GBK" ?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" 
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="action" extends="struts-default">
+
+		<!--定义默认的拦截栈堆 -->
+		<default-interceptor-ref name="defaultStack" />
+
+		<!--默认首页配置 -->
+		<default-action-ref name="index" />
+
+		<!--全局结果码 -->
+		<global-results>
+			<result name="error" type="dispatcher">
+				<param name="location">/error.jsp</param>
+			</result>
+			<result name="login" type="dispatcher">
+				<param name="location">/login.jsp</param>
+			</result>
+			<result name="wait" type="dispatcher">
+				<param name="location">/wait.jsp</param>
+			</result>
+			
+		</global-results>
+
+		<!--全局异常处理设置 -->
+		
+
+		<!--首页处理 -->
+		<action name="index" class="com.opensymphony.xwork2.ActionSupport">
+			<result name="success" type="dispatcher">userBaseAction.action</result>
+		</action>
+
+		
+
+		<!-- HAXE用用户登录/登出/获取权限认证信息入口 配置 -->
+		<action name="securityAction_*" class="securityHelper" method="{1}">
+			<result name="success" type="dispatcher">index.jsp</result>
+		</action>
+		
+
+		<!--微信授权入口-->
+		<action name="entranceWinXin" class="thirdPartyPlatformFunction" method="entranceWinXin"/>
+		<!--微信授权回调-->
+		<action name="returnForWeiXin" class="thirdPartyPlatformFunction" method="returnForWeiXin"/>
+		<!--每隔十分钟获取每10分钟推送一次的安全ticket（用于获取预授权码）微信授权回调-->
+		<action name="getComponentVerifyTicket" class="thirdPartyPlatformFunction" method="getComponentVerifyTicket"/>
+		<!--微信h5签名注册-->
+		<action name="getSignPackage" class="thirdPartyPlatformFunction" method="getSignPackage"/>
+		<!--微信h5支付入口-->
+		<action name="weixinForPay" class="thirdPartyPlatformFunction" method="weixinForPay"/>
+		<!--微信h5支付异步通知回调地址-->
+		<action name="payReturn_url" class="thirdPartyPlatformFunction" method="payReturn_url"/>
+		<!--获取用户信息入口-->
+		<action name="getUserInfo" class="thirdPartyPlatformFunction" method="getUserInfo"/>
+		<!--消息事件回调地址-->
+		<action name="commonReturn_url" class="thirdPartyPlatformFunction" method="commonReturn_url"/>
+		<!--获取商户公众号基本信息-->
+		<action name="getShopPublicNumberInfo" class="thirdPartyPlatformFunction" method="getShopPublicNumberInfo"/>
+		<!--获取永久二维码-->
+		<action name="getCodeByTicket" class="thirdPartyPlatformFunction" method="getCodeByTicket"/>
+		<!--根据商户id查询appid-->
+		<action name="getAppIdByShopId" class="thirdPartyPlatformFunction" method="getAppIdByShopId"/>
+		<!--彩票回调通知-->
+		<action name="lotteryTicket_return" class="lotteryTicketFunction" method="lotteryTicket_return"/>
+		<!--彩票下注-->
+		<action name="lotteryTicketEntrance" class="lotteryTicketFunction" method="lotteryTicketEntrance"/>
+		<!--测试选择兑奖方式-->
+		<action name="redcash" class="lotteryTicketFunction" method="redcash"/>
+
+		<!--微信接口对外入口-->
+		<action name="interfaceForWeiXin" class="WeiXinEnteanceService" method="interfaceForWeiXin"/>
+
+	</package>
+	
+    
+		
+</struts>

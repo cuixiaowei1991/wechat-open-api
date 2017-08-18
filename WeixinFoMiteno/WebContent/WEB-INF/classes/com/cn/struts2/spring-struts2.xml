@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--ACTION配置 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<!--Action基类 -->
+	<bean id="baseAction" class="com.cn.struts2.BaseAction" abstract="true">
+
+		 <property name="hibernateDao">
+		 <ref bean="hibernateDao" />
+		</property>
+		<property name="dateModule">
+			<ref bean="dateModule" />
+		</property>
+		<property name="randomModule">
+			<ref bean="randomModule" />
+		</property>
+		<property name="cryptoModule">
+			<ref bean="cryptoDigestImpl" />
+		</property>
+	</bean>
+
+
+	
+	<!--<bean id="ForApayCode" class="com.cn.inApay.ForApayCode" parent="baseAction">
+	</bean>-->
+	<bean name="getAuthorizeByAuthappid" class="com.cn.dao.daoimpl.getAuthorizeByAuthappidDaoimpl" parent="baseAction"></bean>
+	<bean name="infoDaoimpl" class="com.cn.dao.daoimpl.orderInfoDaoimpl" parent="baseAction"></bean>
+	<bean name="getWeiXinTuiguangByWXTDDaoimpl" class="com.cn.dao.daoimpl.getWeiXinTuiguangByWXTDDaoimpl" parent="baseAction"></bean>
+	<bean name="lotteryTicketDaoimpl" class="com.cn.dao.daoimpl.lotteryTicketDaoimpl" parent="baseAction"></bean>
+	<bean name="autoMessageDaoimpl" class="com.cn.dao.daoimpl.AutoMessageDaoImpl" parent="baseAction"></bean>
+	<bean name="advertOrderDaoimpl" class="com.cn.dao.daoimpl.AdvertOrderDaoImpl" parent="baseAction"></bean>
+
+	<bean id="thirdPartyPlatformFunction" class="com.cn.weixin.thirdPartyPlatformFunction" parent="baseAction">
+		<property name="gabadaoimpl" ref="getAuthorizeByAuthappid"></property>
+		<property name="infoDaoimpl" ref="infoDaoimpl"></property>
+		<property name="getwxtgimpl" ref="getWeiXinTuiguangByWXTDDaoimpl"></property>
+		<property name="autoMessageDaoimpl" ref="autoMessageDaoimpl"></property>
+		<property name="advertOrderDaoimpl" ref="advertOrderDaoimpl"></property>
+		<property name="app_id">
+			<value>${app_id}</value>
+		</property>
+		<property name="app_secret">
+			<value>${app_secret}</value>
+		</property>
+		<property name="token">
+			<value>${token}</value>
+		</property>
+		<property name="key">
+			<value>${app_key}</value>
+		</property>
+		<property name="pay_notify_url">
+			<value>${pay_notify_url}</value>
+		</property>
+		<property name="cardCherkReturn_url">
+			<value>${cardCherkReturn_url}</value>
+		</property>
+		<property name="sotreCheckReturn_url">
+			<value>${sotreCheckReturn_url}</value>
+		</property>
+		<property name="apayUrl">
+			<value>${apayUrl}</value>
+		</property>
+		<property name="asyncPayResult_url">
+			<value>${asyncPayResult_url}</value>
+		</property>
+		<property name="transitUrl">
+			<value>${transitUrl}</value>
+		</property>
+	</bean>
+	<bean id="toRegisterAction" class="com.cn.weixin.toRegisterAction" parent="baseAction">
+
+		<property name="app_id">
+			<value>${app_id}</value>
+		</property>
+
+	</bean>
+	<!--彩票-->
+	<bean id="lotteryTicketFunction" class="com.cn.weixin.lotteryTicketFunction" parent="baseAction">
+		<property name="ltDaoimpl" ref="lotteryTicketDaoimpl"></property>
+	</bean>
+
+
+	<!--微信接口入口-->
+	<bean id="WeiXinEnteanceService" class="com.cn.weixin.WeiXinEnteanceService" parent="baseAction">
+		<property name="cfunction" ref="ChangeFunction"></property>
+	</bean>
+	<bean id="ChangeFunction" class="com.cn.weixin.ChangeFunction" parent="baseAction">
+		<property name="forWeixin" ref="ForWeiXin"></property>
+	</bean>
+	<bean id="ForWeiXin" class="com.cn.weixin.ForWeiXin" parent="baseAction">
+		<property name="tppfFunction" ref="thirdPartyPlatformFunction"></property>
+	</bean>
+	<!--微信接口结束-->
+
+
+</beans>
